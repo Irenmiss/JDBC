@@ -39,17 +39,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         }
     }
 
-    public void deleteEmployeeById(int id) {
-        Session session = HibernateSessionFactoryUtils.getSessionFactory().openSession();
-        try (session) {
-            Transaction transaction = session.beginTransaction();
-            Query query = session.createNativeQuery("DELETE FROM employee WHERE id = :id");
-            query.setParameter("id", id);
-            query.executeUpdate();
-            transaction.commit();
-        }
-    }
-
     @Override
     public void deleteEmployee(Employee employee) {
         Session session = HibernateSessionFactoryUtils.getSessionFactory().openSession();
@@ -59,6 +48,16 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             transaction.commit();
         }
 
+    }
+    public void deleteEmployeeById(int id) {
+        Session session = HibernateSessionFactoryUtils.getSessionFactory().openSession();
+        try (session) {
+            Transaction transaction = session.beginTransaction();
+            Query query = session.createNativeQuery("DELETE FROM employee WHERE id = :id");
+            query.setParameter("id", id);
+            query.executeUpdate();
+            transaction.commit();
+        }
     }
 
     public List<Employee> getAllEmployees() {

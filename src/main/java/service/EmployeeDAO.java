@@ -12,9 +12,9 @@ public interface EmployeeDAO {
 
     void updateEmployee(Employee employee);
 
-    void deleteEmployee(Employee employee);
-
     void deleteEmployeeById(int id);
+
+    void deleteEmployee(Employee employee);
 
     List<Employee> getAllEmployees();
 }
