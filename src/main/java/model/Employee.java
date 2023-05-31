@@ -15,9 +15,12 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String first_name;
-    private String last_name;
+    @Column(name = "first_name")
+    private String firstName;
+    @Column(name = "last_name")
+    private String lastName;
     private String gender;
-    int age;
-    private int city_id;
+    private int age;
+    @Column(name = "city_id")
+    private int cityId;
 }
